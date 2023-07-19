@@ -1,0 +1,160 @@
+:root {
+  --bg-color: #fff;
+  --text-color: hsl(219, 29%, 14%);
+  --violet: hsl(263, 55%, 52%);
+  --grey: hsl(217, 19%, 35%);
+  --dark-blue: hsl(219, 29%, 14%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-blue: hsl(210, 46%, 95%);
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+}
+
+body {
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  background-color: var(--light-blue);
+  padding: 0 1em;
+}
+
+img {
+  max-width: 100%;
+}
+
+.title {
+  font-size: 1.5em;
+  margin: 1em 0;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4em;
+}
+
+@media screen and (min-width: 960px) {
+  .testimonials {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.4em;
+  }
+
+  .card:first-child {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .card:nth-child(3) {
+    grid-row: span 2;
+  }
+
+  .card:nth-child(5) {
+    grid-column: span 2;
+  }
+
+}
+
+.card {
+  position: relative;
+  padding: 1em;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  border-radius: 0.8em;
+}
+
+.card--white-text {
+  --text-color: hsl(0, 0%, 81%);
+}
+
+.card--violet::after {
+  content: url(/08-grid/assets/images/quotation-violet.svg);
+}
+
+.card--dark-blue::after {
+  content: url(/08-grid/assets/images/quotation-grey.svg);
+}
+
+.card--violet::after,
+.card--dark-blue::after {
+  position: absolute;
+  top: 1rem;
+  right: 4rem;
+}
+
+.card--violet>*,
+.card--dark-blue>* {
+  position: relative;
+  z-index: 1;
+}
+
+.card--violet {
+  --bg-color: hsl(263, 55%, 52%);
+}
+
+.card--grey {
+  background-color: hsl(217, 19%, 35%);
+}
+
+.card--dark-blue {
+  background-color: hsl(219, 29%, 14%);
+}
+
+.card--light-gray {
+  background-color: hsl(0, 0%, 81%);
+}
+
+.card--light-blue {
+  background-color: hsl(210, 46%, 95%);
+}
+
+.card__header {
+  display: flex;
+}
+
+.card__image {
+  top: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid currentColor;
+  width: 40px;
+}
+
+.card__person-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1em;
+  font-size: 1em;
+}
+
+.card__name,
+.card__role {
+  margin: 0.1rem;
+}
+
+.card__body,
+.card__comment {
+  padding-top: 1em;
+}
+
+.card__title {
+  font-size: 1.4rem;
+}
+
+.card__comment {
+  font-size: 1.1em;
+}
+
+.card__name,
+.card__title {
+  font-weight: bold;
+}
+
+.card__role {
+  opacity: 0.5;
+}
+
+.card__comment {
+  opacity: 0.7;
+}
